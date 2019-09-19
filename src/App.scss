@@ -1,0 +1,37 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+ 
+
+$bg-color:  #9b870c;
+.App {
+  display: grid;
+  grid-template-areas: "bar bar"
+                       "editor content";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 30fr;
+  height: 100%;
+}
+
+.editor {
+  grid-area: editor;
+  border-radius: 5px;
+}
+.bar {
+  background-color: $bg-color;
+  grid-area: bar;
+  color: #101820FF;
+  font-size: 1.70em;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  padding-bottom: 5px;
+  margin: 0;
+}
+
+.content-container {
+  background-color: $bg-color;
+  grid-area: content;
+}
+
