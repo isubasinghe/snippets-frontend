@@ -1,8 +1,20 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
  
+div {
+  font-family: 'Open Sans', sans-serif;
+}
 
 $bg-color:  #9b870c;
+
+.center-h {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: inherit;
+  width: inherit;
+}
+
 .App {
   display: grid;
   grid-template-areas: "bar bar"
@@ -14,7 +26,6 @@ $bg-color:  #9b870c;
 
 .editor {
   grid-area: editor;
-  border-radius: 5px;
 }
 .bar {
   background-color: $bg-color;
@@ -31,7 +42,35 @@ $bg-color:  #9b870c;
 }
 
 .content-container {
+  height: 100%;
   background-color: $bg-color;
   grid-area: content;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+}
+
+
+
+.checksum-section {
+  text-align: center;
+}
+
+.deploy-section {
+  text-align: center;
+}
+
+.button {
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: #1abc9c;
+  padding: 10px 19px;
+  font-size: 17px;
+  line-height: 1.471;
+  border-radius: 6px;
+}
