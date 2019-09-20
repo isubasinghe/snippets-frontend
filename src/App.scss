@@ -51,6 +51,7 @@ $bg-color:  #9b870c;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  width: 100%;
   
 }
 
@@ -64,6 +65,10 @@ $bg-color:  #9b870c;
   text-align: center;
 }
 
+.json-editor{
+  margin: 0 auto;
+}
+
 .button {
   margin: 10px;
   border-radius: 5px;
@@ -73,4 +78,10 @@ $bg-color:  #9b870c;
   font-size: 17px;
   line-height: 1.471;
   border-radius: 6px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
