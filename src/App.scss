@@ -15,7 +15,13 @@ $bg-color:  #9b870c;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 30fr;
   height: 100%;
+  @media only screen and (max-width: 900px) {
+    grid-template-areas: "bar bar"
+                         "editor editor"
+                         "content content";
+  }
 }
+
 
 .editor {
   grid-area: editor;
@@ -82,8 +88,18 @@ $bg-color:  #9b870c;
 .text-desc {
   font-weight: 600;
   font-size: 1.2em;
+  overflow-wrap: break-word;
+  margin: 0 auto;
+  max-width: 50vw;
+  @media only screen and (max-width: 900px) {
+    margin-top: 50px;
+  }
 }
 
 .deploy-button {
   margin-top: 100px;
+}
+
+.ace_editor {
+  min-height: 30vh !important;
 }

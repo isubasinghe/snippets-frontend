@@ -145,6 +145,7 @@ module.exports = handler;
               showGutter={true}
               highlightActiveLine={true}
               onChange={data => setPostData(data)}
+              width={'95%'}
               setOptions={{
                 enableBasicAutocompletion: true,
                 enableLiveAutocompletion: false,
