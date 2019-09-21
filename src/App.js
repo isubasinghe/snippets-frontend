@@ -6,19 +6,20 @@ import axios from "axios";
 import "./App.scss";
 
 import "brace/mode/javascript";
-import "brace/theme/monokai";
 import "brace/mode/json";
-import "brace/theme/github";
+import "brace/theme/dracula";
+
+const theme = "dracula";
 
 function App() {
   const [source, setSource] = useState(`
-    function handler(req, cb) {
-      console.log("Started");
-      cb({data: "Hello World"});
-    }
-    
-    
-    module.exports = handler;
+function handler(req, cb) {
+  console.log("Started");
+  cb({data: "Hello World"});
+}
+
+
+module.exports = handler;
   `);
   const [hash, setHash] = useState("");
   const [bsource, setBSource] = useState("");
@@ -37,15 +38,14 @@ function App() {
 
   const deploy = source => {
     axios
-      .post("http://localhost:3000/api/create", {
+      .post("https://snippets-eng.herokuapp.com/api/create", {
         source
       })
       .then(res => {
-        alert(res);
         console.log(res);
       })
       .catch(err => {
-        alert(err);
+        alert(err.response.data.error);
         console.log(err);
       });
   };
@@ -59,7 +59,7 @@ function App() {
       return;
     }
     axios
-      .post(`http://localhost:3000/${hash}`, data)
+      .post(`https://snippets-eng.herokuapp.com/${hash}`, data)
       .then(res => {
         console.log(res);
         alert(JSON.stringify(res.data));
@@ -71,7 +71,7 @@ function App() {
 
   const get = () => {
     axios
-      .get(`http://localhost:3000/${hash}`)
+      .get(`https://snippets-eng.herokuapp.com/${hash}`)
       .then(res => {
         console.log(res);
         alert(JSON.stringify(res.data));
@@ -88,7 +88,7 @@ function App() {
         value={source}
         className="editor"
         mode="javascript"
-        theme="monokai"
+        theme={theme}
         fontSize={14}
         showPrintMargin={true}
         showGutter={true}
@@ -111,17 +111,17 @@ function App() {
           <div className="form-container">
             <div className="checksum-section">
               {loaded ? (
-                <div>SHA256 CheckSum: {hash}</div>
+                <div className="text-desc">SHA256 CheckSum: {hash}</div>
               ) : (
-                <div>Enter some code first</div>
+                <div className="text-desc">Enter some code first</div>
               )}
             </div>
             <div className="deploy-section">
               {loaded ? (
                 <div>
-                  <div>https://api.snippets.engineer/{hash}/</div>
+                  <div className="text-desc">https://snippets-eng.herokuapp.com/{hash}/</div>
                   <button
-                    className="button"
+                    className="button deploy-button"
                     onClick={() => {
                       deploy(source);
                     }}
@@ -130,7 +130,7 @@ function App() {
                   </button>
                 </div>
               ) : (
-                <div>Not ready to deploy</div>
+                <div className="text-desc">Not ready to deploy</div>
               )}
             </div>
             <AceEditor
@@ -138,7 +138,7 @@ function App() {
               value={postData}
               className="json-editor"
               mode="json"
-              theme="monokai"
+              theme={theme}
               fontSize={14}
               showPrintMargin={true}
               showGutter={true}
