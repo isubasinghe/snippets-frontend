@@ -65,7 +65,7 @@ module.exports = handler;
         alert(JSON.stringify(res.data));
       })
       .catch(err => {
-        alert(err.message);
+        alert(err.response.data.error);
       });
   };
 
@@ -77,7 +77,8 @@ module.exports = handler;
         alert(JSON.stringify(res.data));
       })
       .catch(err => {
-        alert(err.message);
+        console.log(err);
+        alert(err.response.data.error);
       });
   };
 
