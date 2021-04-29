@@ -1,0 +1,28 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "19:00"
+  open-pull-requests-limit: 99
+  ignore:
+  - dependency-name: js-beautify
+    versions:
+    - 1.13.11
+    - 1.13.5
+    - 1.13.8
+  - dependency-name: react
+    versions:
+    - 16.14.0
+    - 17.0.1
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.1
+    - 4.0.2
+  - dependency-name: react-ace
+    versions:
+    - 9.3.0
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
